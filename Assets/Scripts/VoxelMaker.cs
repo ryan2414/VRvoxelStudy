@@ -22,6 +22,9 @@ public class VoxelMaker : MonoBehaviour
     //경과 시간
     private float currentTime = 0;
 
+    //크로스헤어 변수
+    public Transform crosshair;
+    
     private void Start()
     {
         //오브젝트 풀에 비활성화된 복셀을 담고 싶다.
@@ -33,12 +36,15 @@ public class VoxelMaker : MonoBehaviour
             voxel.SetActive(false);
             //3. 복셀을 오브젝트 풀에 담고 싶다.
             voxelPool.Add(voxel);
-        }
+        }a
     }
 
     // Update is called once per frame
     void Update()
     {
+        //크로스헤어 그리기
+        ARAVRInput.DrawCrosshair(crosshair);
+        
         if (ARAVRInput.Get(ARAVRInput.Button.One))
         {
             //일정 시간마다 복셀을 만들고 싶다.
